@@ -1,10 +1,13 @@
-import 'package:asistencia_maestros/pages/maestros.dart';
+import 'package:asistencia_maestros/pages/home.dart';
 import 'package:asistencia_maestros/widgets/botones.dart';
 import 'package:asistencia_maestros/widgets/textfields.dart';
+import 'package:camera/camera.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
+  final CameraDescription cameraDescription;
+  const LoginPage({Key? key, required this.cameraDescription}):super(key: key);
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -46,7 +49,9 @@ class _LoginPageState extends State<LoginPage> {
                 botones(
                     onPressed: () async {
                       if(userController.text == '1234'){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => maestrosHome(),));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>  HomePage(
+                      cameraDescription: widget.cameraDescription,
+                    ),));
                     }else{
                       await _authenticate(context);
                     }
@@ -61,29 +66,32 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> _authenticate(BuildContext context) async {
-    bool isAuthenticated = false;
-    try {
-      isAuthenticated = await _localAuth.authenticate(
-        options: AuthenticationOptions(
-            biometricOnly: true, stickyAuth: isAuthenticated),
-        localizedReason: 'Authenticate to open the app',
-      );
-    } catch (e) {
-      print(e);
-    }
-
-    if (isAuthenticated) {
-      Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => maestrosHome(),
-      ));
-      // Navigate to the main screen or perform any other action
-    } else {
-      // Handle authentication failure
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Authentication failed.'),
-        ),
-      );
-    }
+  bool isAuthenticated = false;
+  try {
+    isAuthenticated = await _localAuth.authenticate(
+      options: const AuthenticationOptions(
+        biometricOnly: true,
+      ),
+      localizedReason: 'Authenticate to open the app',
+    );
+  } catch (e) {
+    print(e);
   }
+
+  if (isAuthenticated) {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) =>  HomePage(cameraDescription: widget.cameraDescription,),
+    ));
+    // Navigate to the main screen or perform any other action
+  } else {
+    // Handle authentication failure
+    // ignore: use_build_context_synchronously
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Authentication failed.'),
+      ),
+    );
+  }
+}
+
 }

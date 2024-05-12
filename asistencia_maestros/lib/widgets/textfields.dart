@@ -34,7 +34,7 @@ class _textfieldsAppState extends State<textfieldsApp> {
       padding: const EdgeInsets.all(2.0),
       height: 50,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(10),
           border: Border.all(
             width: focusNode.hasFocus ? 5 : 2.5,
               color: focusNode.hasFocus ? AppColors.azulOscuro : AppColors.claro)),

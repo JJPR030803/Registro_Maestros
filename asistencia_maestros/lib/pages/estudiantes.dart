@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
-class estudiantesHome extends StatelessWidget {
-  const estudiantesHome({super.key});
+class MaestrosHome extends StatelessWidget {
+  const MaestrosHome({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      
+    );
   }
 }
