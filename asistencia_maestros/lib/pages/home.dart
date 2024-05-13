@@ -1,4 +1,5 @@
 import 'package:asistencia_maestros/colors.dart';
+import 'package:asistencia_maestros/pages/estudiantes.dart';
 import 'package:asistencia_maestros/widgets/camera.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,7 @@ class HomePage extends StatelessWidget {
           color: Colors.blue,
         ),
       ),
-      drawer: CustomDrawer(scaffoldKey: _scaffoldKey),
+      drawer: CustomDrawer(scaffoldKey: _scaffoldKey,cameraDescription: cameraDescription,),
       backgroundColor: Colors.white,
       body: Container(
         padding: EdgeInsets.all(8.0),
@@ -52,9 +53,10 @@ class HomePage extends StatelessWidget {
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
     super.key,
+    required this.cameraDescription,
     required GlobalKey<ScaffoldState> scaffoldKey,
   }) : _scaffoldKey = scaffoldKey;
-
+  final CameraDescription cameraDescription;
   final GlobalKey<ScaffoldState> _scaffoldKey;
 
   @override
@@ -100,22 +102,13 @@ class CustomDrawer extends StatelessWidget {
           ),
           const SizedBox(height: 0,),
            BotonesMenu(texto: "Maestros",onTap:() {
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage(cameraDescription: cameraDescription ),));
             
           },),
            BotonesMenu(texto: "Estudiantes",onTap: () {
-             
+            Navigator.of(context).push(MaterialPageRoute(builder: (context)=> EstudiantesLista(cameraDescription: cameraDescription,)));
            },),
           const SizedBox(height: 400,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-    
-            children: [
-              IconButton(onPressed: (){
-                
-              }, icon: const Icon(Icons.exit_to_app,color: Colors.red,)),
-            ],
-          )
         ],
       ),
     );
