@@ -18,6 +18,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
+        actions: [Image.asset("lib/assets/images/imagenuat.png"),const SizedBox(width:10 ,)],
         title: const Text(
           "FIANS",
           style: TextStyle(
@@ -40,7 +41,7 @@ class HomePage extends StatelessWidget {
       drawer: CustomDrawer(scaffoldKey: _scaffoldKey,cameraDescription: cameraDescription,),
       backgroundColor: Colors.white,
       body: Container(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         //width: widthScreen,
         //height: heightScreen/3,
         child: 
@@ -66,35 +67,37 @@ class CustomDrawer extends StatelessWidget {
       child: ListView(
         children: [
           DrawerHeader(
+
             decoration: const BoxDecoration(
               color: Colors.orange,
             ),
             duration: const Duration(milliseconds: 300),
             child: Column(
+              
               children: [
-                Image.asset(
-                    "asistencia_maestros/assets/images/imagenuat.png"),
-                    const SizedBox(height: 50,),
+                const SizedBox(height: 20,),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      scale: 5,
+                        "lib/assets/images/imagenuat.png"),
+                  ],
+                ),
+                    const SizedBox(height: 50,),
+                const Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    const Text(
-                      "Menu:",
-                      style: TextStyle(fontSize: 25, color: Colors.white),
-                    ),
-                    const SizedBox(
+                    //Text(
+                      //"Menu:",
+                      //style: TextStyle(fontSize: 25, color: Colors.white),
+                    //),
+                    SizedBox(
                       width: 150,
                     ),
-                    IconButton(
-                        onPressed: () {
-                          _scaffoldKey.currentState?.closeDrawer();
-                        },
-                        icon: const Icon(
-                          Icons.close,
-                          color: Colors.blue,
-                          size: 30,
-                        ))
+                    
                   ],
                 ),
               ],
@@ -108,6 +111,9 @@ class CustomDrawer extends StatelessWidget {
            BotonesMenu(texto: "Estudiantes",onTap: () {
             Navigator.of(context).push(MaterialPageRoute(builder: (context)=> EstudiantesLista(cameraDescription: cameraDescription,)));
            },),
+           BotonesMenu(onTap: (){
+
+           }, texto: "Historial"),
           const SizedBox(height: 400,),
         ],
       ),

@@ -29,6 +29,7 @@ class _EstudiantesListaState extends State<EstudiantesLista> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
+        actions: [Image.asset("lib/assets/images/imagenuat.png"),const SizedBox(width:10 ,)],
         title: const Text(
           "FIANS",
           style: TextStyle(
@@ -50,9 +51,10 @@ class _EstudiantesListaState extends State<EstudiantesLista> {
       ),
       drawer: CustomDrawer(cameraDescription: widget.cameraDescription, scaffoldKey: _scaffoldKey),
       backgroundColor: Colors.white,
-      body: ListView(padding: EdgeInsets.all(1.0),children: [
+      body: ListView(padding: const EdgeInsets.all(1.0),children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(onPressed: (){
               setState(() {
@@ -61,8 +63,8 @@ class _EstudiantesListaState extends State<EstudiantesLista> {
                 print(currentIndex);
                 
               });
-            }, icon: Icon(Icons.arrow_back,color: Colors.black,)),
-            Text(listaDias[currentIndex],style: TextStyle(fontSize: 24),),
+            }, icon: const Icon(Icons.arrow_back,color: Colors.blue,size: 35,)),
+            Text(listaDias[currentIndex],style: const TextStyle(fontSize: 24),),
             IconButton(onPressed: (){
               setState(() {
                 print(currentIndex);
@@ -70,20 +72,23 @@ class _EstudiantesListaState extends State<EstudiantesLista> {
                 print(currentIndex);
                 
               });
-            }, icon: Icon(Icons.arrow_forward,color: Colors.black,))
+            }, icon: const Icon(Icons.arrow_forward,color: Colors.blue,size: 35,))
           ],
         ),
-        listContainer(nombre: "Juan Paniagua",initialpaseLista: false,),
-        listContainer(nombre: "Bruno Diaz", initialpaseLista: false),
-        listContainer(nombre: "Tony Stark", initialpaseLista: false),
-        listContainer(nombre: "Isaac Bleyt", initialpaseLista: false),
-        listContainer(nombre: "Cesar Marin", initialpaseLista: false),
-        listContainer(nombre: "Jorge Aquino", initialpaseLista: false),
-        listContainer(nombre: "Fernando Saenz Rico", initialpaseLista: false),
-        listContainer(nombre: "Emmanuel Mendez", initialpaseLista: false),
-        listContainer(nombre: "Bruno Diaz", initialpaseLista: false),
-        listContainer(nombre: "Barry Allen", initialpaseLista: false),
-        listContainer(nombre: "Hal Jordan", initialpaseLista: false),
+        const listContainer(nombre: "Juan Paniagua",initialpaseLista: false,),
+        const listContainer(nombre: "Bruno Diaz", initialpaseLista: false),
+        const listContainer(nombre: "Tony Stark", initialpaseLista: false),
+        const listContainer(nombre: "Isaac Bleyt", initialpaseLista: false),
+        const listContainer(nombre: "Cesar Marin", initialpaseLista: false),
+        const listContainer(nombre: "Pocoyo", initialpaseLista: false),
+        const listContainer(nombre: "Cazquin Andres", initialpaseLista: false),
+        const listContainer(nombre: "Thor", initialpaseLista: false),
+        const listContainer(nombre: "Jorge Aquino", initialpaseLista: false),
+        const listContainer(nombre: "Fernando Saenz Rico", initialpaseLista: false),
+        const listContainer(nombre: "Emmanuel Mendez", initialpaseLista: false),
+        const listContainer(nombre: "Bruno Diaz", initialpaseLista: false),
+        const listContainer(nombre: "Barry Allen", initialpaseLista: false),
+        const listContainer(nombre: "Hal Jordan", initialpaseLista: false),
       ],) ,
     );
   }

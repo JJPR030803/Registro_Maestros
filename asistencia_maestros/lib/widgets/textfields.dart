@@ -37,7 +37,7 @@ class _textfieldsAppState extends State<textfieldsApp> {
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
             width: focusNode.hasFocus ? 5 : 2.5,
-              color: focusNode.hasFocus ? AppColors.azulOscuro : AppColors.claro)),
+              color: focusNode.hasFocus ? Colors.blue : Colors.orange)),
       duration: const Duration(milliseconds: 200),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -50,7 +50,7 @@ class _textfieldsAppState extends State<textfieldsApp> {
             width: sizeScreen.width*.6,
             child: TextFormField(
               cursorHeight: 30,
-              style: TextStyle(color: AppColors.azulOscuro,fontSize: 20),
+              style: TextStyle(color: Colors.blue,fontSize: 20),
             cursorColor: AppColors.azulOscuro,
             keyboardType: widget.tipoKeyboard,
             focusNode: focusNode,
@@ -65,7 +65,7 @@ class _textfieldsAppState extends State<textfieldsApp> {
                 widget.texto,
                 style: TextStyle(
                   fontSize: focusNode.hasFocus ? 10:20,
-                    color: focusNode.hasFocus ? Colors.transparent : AppColors.claro),
+                    color: focusNode.hasFocus ? Colors.transparent : Colors.orange),
               ),
             ),
             controller: widget.controller,

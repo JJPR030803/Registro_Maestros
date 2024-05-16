@@ -25,9 +25,9 @@ class _listContainerState extends State<listContainer> {
    double height = MediaQuery.of(context).size.height;
     return Container(
       width: width *0.9 ,
-      height: height*0.1,
+      height: height*0.075,
       decoration: BoxDecoration(
-        border: Border.all(width: 5,color: Colors.black),
+        border: Border.all(width: 2.5,color: Colors.black),
         color: Colors.white,
       ),
       child: Row(
@@ -53,7 +53,7 @@ class _listContainerState extends State<listContainer> {
                 color: paseLista ? Colors.blue : Colors.white,
                 border: Border.all(color: Colors.transparent,width: 0)
               ),
-              width: width*0.2,
+              width: width*0.22,
               height: height*0.1,
               child: Icon(Icons.check,color: paseLista ? Colors.black : Colors.transparent,),
 

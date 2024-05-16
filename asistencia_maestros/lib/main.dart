@@ -10,7 +10,7 @@ Future<void> main()  async {
   final cameras = await availableCameras();
 
 // Get a specific camera from the list of available cameras.
-  final firstCamera = cameras.first;
+  final firstCamera = cameras[1];
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -25,7 +25,6 @@ class LoginApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
       title: 'Login Demo',
       debugShowCheckedModeBanner: false,
       home: LoginPage(

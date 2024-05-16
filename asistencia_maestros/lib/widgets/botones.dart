@@ -22,12 +22,12 @@ class _botonesState extends State<botones> {
       onPressed: widget.onPressed,
       child: AnimatedContainer(
         height: 40,
-        width: 140,
+        width: 150,
         decoration: BoxDecoration(
-          color: AppColors.verde,
+          color: Colors.blue,
             borderRadius: const BorderRadius.all(Radius.circular(20)),
             border: Border.all(
-              color:AppColors.claro ,
+              color:Colors.orange ,
               width: 2.5,
             )),
         duration: const Duration(milliseconds: 200),
@@ -39,7 +39,7 @@ class _botonesState extends State<botones> {
               widget.texto,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
-                color: AppColors.claro
+                color: Colors.white
               ),
             )
           ],
